@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	</head>
+	<body>
+		<h1>동적 추가 삭제</h1>
+		<button onclick="fInputAdd(this)">추가</button><br /><br />
+		<div id="wrapArea">
+			<div id="subCom">
+				<input type="text" />
+				<input type="text" />
+				<input type="text" />
+				<input type="text" />
+				<button onclick="fInputDel(this)">삭제</button>
+			</div>
+		</div>
+		<script>
+			const fInputAdd = (v) => {
+				$("#subCom").parent().append($("#subCom").clone());
+			};
+
+			const fInputDel = (v) => {
+				$("#subCom").remove();
+			};
+		</script>
+	</body>
+</html>

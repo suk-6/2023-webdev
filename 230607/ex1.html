@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head></head>
+	<body>
+		<input type="text" id="input1" name="input1" />
+		<button id="btn1" onclick="fncInput()">id test</button>
+		<button id="btn2" onclick="fncInput1()">name test</button>
+		<button id="btn3" onclick="fncInput2(this)" value="aaa">
+			value test</button
+		><br /><br />
+		<div
+			id="idDiv"
+			style="width: 200px; height: 200px; border: 1px solid"
+		></div>
+
+		<script>
+			const fncInput = () => {
+				idDiv.innerText = input1.value;
+			};
+
+			const fncInput1 = () => {
+				idDiv.innerText = document.getElementsByName("input1")[0].value;
+			};
+
+			const fncInput2 = (v) => {
+				idDiv.innerText = v.value;
+			};
+		</script>
+	</body>
+</html>

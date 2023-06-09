@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>계산기</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f4f4f4;
+				text-align: center;
+			}
+
+			h1 {
+				color: #333;
+			}
+
+			#result {
+				width: 200px;
+				height: 40px;
+				font-size: 18px;
+				text-align: right;
+				margin-bottom: 20px;
+			}
+
+			button {
+				width: 50px;
+				height: 50px;
+				font-size: 18px;
+				margin: 5px;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			button:hover {
+				background-color: #f4f4f4;
+			}
+
+			.outputs {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+			}
+
+			.logs {
+				width: 150px;
+				height: 150px;
+				border: 1px solid;
+				float: left;
+				margin: 10px;
+				padding: 10px;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>간단한 계산기</h1>
+
+		<input id="result" type="text" readonly /><br /><br />
+
+		<button onclick="fClick('+')">+</button>
+		<button onclick="fClick(7)">7</button>
+		<button onclick="fClick(8)">8</button>
+		<button onclick="fClick(9)">9</button><br /><br />
+		<button onclick="fClick('-')">-</button>
+		<button onclick="fClick(4)">4</button>
+		<button onclick="fClick(5)">5</button>
+		<button onclick="fClick(6)">6</button><br /><br />
+		<button onclick="fClick('*')">*</button>
+		<button onclick="fClick(1)">1</button>
+		<button onclick="fClick(2)">2</button>
+		<button onclick="fClick(3)">3</button><br /><br />
+		<button onclick="fClick('/')">/</button>
+		<button onclick="fClick('.')">.</button>
+		<button onclick="fClick(0)">0</button>
+		<button onclick="fClick('equal')">=</button>
+		<button onclick="fClick('clear')">C</button><br /><br />
+
+		<div class="outputs">
+			<div class="logs" id="calc"></div>
+			<div class="logs" id="history"></div>
+		</div>
+
+		<script>
+			const fClick = (input) => {
+				console.log(input);
+
+				const result = document.getElementById("result");
+				const calc = document.getElementById("calc");
+				const history = document.getElementById("history");
+
+				if (input === "clear") {
+					result.value = "";
+					calc.innerText = "";
+					history.innerText = "";
+					return;
+				} else if (input === "equal") {
+					result.value = new Function(`return ${calc.innerText}`)();
+					history.innerText += `${calc.innerText} = ${result.value}\n`;
+					calc.innerText = "";
+					return;
+				} else if (typeof input === "number") {
+					calc.innerText += input;
+					return;
+				} else {
+					calc.innerText += input;
+					return;
+				}
+			};
+		</script>
+	</body>
+</html>
