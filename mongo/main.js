@@ -1,6 +1,10 @@
 const express = require('express')
+const mongoose = require('mongoose')
 
 const app = express()
+
+// DB Connection
+mongoose.connect('mongodb://localhost:27017/notes-app');
 
 app.use('/static', express.static('public'));
 
