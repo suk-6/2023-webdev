@@ -1,0 +1,33 @@
+<%- include('layout/doc_header') %>
+
+<div class="container">
+    <h3 class="my-4">"<%=doc.Subject%>"</h3>
+    <div class="my-3">
+        <label for="Subject">제목 :</label>
+        <p><%=doc.Subject%></p>
+    </div>
+    <div class="my-3">
+        <label for="LastStatus">최종 상태 :</label>
+        <p><%=doc.LastStatus%></p>
+    </div>
+    <div class="my-3">
+        <label for="WriteUserName">작성자명 :</label>
+        <p><%=doc.WriteUserName%></p>
+    </div>
+    <div class="my-3">
+        <label for="BodyDesc">문서내용</label>
+        <p><%=doc.BodyDesc%></p>
+    </div>
+    <div class="my-3">
+        <label for="Thumbnail" class="form-label">썸네일 이미지</label>
+        <p><img src="/<%= doc.Thumbnail %>" width="300" class="img-thumbnail mt-1" /></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="mb-3">
+        <a class="btn btn-secondary" href="/">목록으로 이동</a>
+    </div>        
+</div>
+
+<%- include('layout/doc_footer') %>
