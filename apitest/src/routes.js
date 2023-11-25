@@ -8,6 +8,12 @@ const routes = (app) => {
         res.header('Content-Type', 'application/json');
         res.send(data);
     });
+
+    app.post('/api/users', createUserHandler);
+
+    app.post('/api/sessions', createSessionHandler);
+    app.get('/api/sessions', getSessionsHandler);
+    app.delete('/api/sessions', deleteSessionHandler);
 };
 
 export default routes;
